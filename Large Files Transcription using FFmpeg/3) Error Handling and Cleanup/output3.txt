@@ -1,0 +1,30 @@
+#Output for default program: (after transcribing a video)
+
+/usercode/FILESYSTEM$ ls /tmp
+core-js-banners
+github-remote
+http-remote
+node-compile-cache
+theia_upload
+v8-compile-cache-0
+v8-compile-cache-10000
+yarn--1763131297028-0.6684977681436672
+yarn--1763131307538-0.4178432936448522
+yarn--1763131369344-0.027763087768615913
+yarn--1763131412089-0.2363846783748349
+yarn--1763131618796-0.795208477842356
+yarn--1763131618796-0.9784687902699027
+/usercode/FILESYSTEM$ 
+
+
+#Output after inserting the cleanup code
+
+/usercode/FILESYSTEM$ ls /tmp
+core-js-banners         yarn--1763131297028-0.6684977681436672
+github-remote           yarn--1763131307538-0.4178432936448522
+http-remote             yarn--1763131369344-0.027763087768615913
+node-compile-cache      yarn--1763131412089-0.2363846783748349
+theia_upload            yarn--1763131618796-0.795208477842356
+v8-compile-cache-0      yarn--1763131618796-0.9784687902699027
+v8-compile-cache-10000
+/usercode/FILESYSTEM$ 

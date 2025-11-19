@@ -1,0 +1,218 @@
+output: Splitting media into chunks...
+
+terminal:
+ffmpeg version 4.4.2-0ubuntu0.22.04.1 Copyright (c) 2000-2021 the FFmpeg developers
+  built with gcc 11 (Ubuntu 11.2.0-19ubuntu1)
+  configuration: --prefix=/usr --extra-version=0ubuntu0.22.04.1 --toolchain=hardened --libdir=/usr/lib/x86_64-linux-gnu --incdir=/usr/include/x86_64-linux-gnu --arch=amd64 --enable-gpl --disable-stripping --enable-gnutls --enable-ladspa --enable-libaom --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libcodec2 --enable-libdav1d --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libjack --enable-libmp3lame --enable-libmysofa --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librabbitmq --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzimg --enable-libzmq --enable-libzvbi --enable-lv2 --enable-omx --enable-openal --enable-opencl --enable-opengl --enable-sdl2 --enable-pocketsphinx --enable-librsvg --enable-libmfx --enable-libdc1394 --enable-libdrm --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libx264 --enable-shared
+  libavutil      56. 70.100 / 56. 70.100
+  libavcodec     58.134.100 / 58.134.100
+  libavformat    58. 76.100 / 58. 76.100
+  libavdevice    58. 13.100 / 58. 13.100
+  libavfilter     7.110.100 /  7.110.100
+  libswscale      5.  9.100 /  5.  9.100
+  libswresample   3.  9.100 /  3.  9.100
+  libpostproc    55.  9.100 / 55.  9.100
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'resources/codesignal_beyond.mp4':
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: isommp42
+    encoder         : Google
+  Duration: 00:37:29.02, start: 0.000000, bitrate: 207 kb/s
+  Stream #0:0(und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(tv, bt709), 640x360 [SAR 1:1 DAR 16:9], 109 kb/s, 23.98 fps, 23.98 tbr, 24k tbn, 47.95 tbc (default)
+    Metadata:
+      handler_name    : ISO Media file produced by Google Inc.
+      vendor_id       : [0][0][0][0]
+  Stream #0:1(eng): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 95 kb/s (default)
+    Metadata:
+      handler_name    : ISO Media file produced by Google Inc.
+      vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:1 -> #0:0 (aac (native) -> mp3 (libmp3lame))
+Press [q] to stop, [?] for help
+Output #0, mp3, to 'resources/codesignal_beyond_chunk_1.mp3':
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: isommp42
+    TSSE            : Lavf58.76.100
+  Stream #0:0(eng): Audio: mp3, 44100 Hz, stereo, fltp (default)
+    Metadata:
+      handler_name    : ISO Media file produced by Google Inc.
+      vendor_id       : [0][0][0][0]
+      encoder         : Lavc58.134.100 libmp3lame
+size=       0kB time=00:00:00.00 bitrate=N/A speed=N/A    size=     768kB time=00:01:04.23 bitrate=  97.9kbits/s speed= 128x    size=    1792kB time=00:02:06.77 bitrate= 115.8kbits/s speed= 127x    size=    2816kB time=00:03:11.08 bitrate= 120.7kbits/s speed= 127x    size=    3840kB time=00:04:14.19 bitrate= 123.8kbits/s speed= 127x    size=    4864kB time=00:05:17.51 bitrate= 125.5kbits/s speed= 127x    size=    5888kB time=00:06:21.51 bitrate= 126.4kbits/s speed= 127x    size=    6912kB time=00:07:25.20 bitrate= 127.2kbits/s speed= 127x    [libmp3lame @ 0x5559a497ffc0] Trying to remove 1152 samples, but the queue is empty
+size=    7029kB time=00:07:29.80 bitrate= 128.0kbits/s speed= 127x    
+video:0kB audio:7029kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.004807%
+ffmpeg version 4.4.2-0ubuntu0.22.04.1 Copyright (c) 2000-2021 the FFmpeg developers
+  built with gcc 11 (Ubuntu 11.2.0-19ubuntu1)
+  configuration: --prefix=/usr --extra-version=0ubuntu0.22.04.1 --toolchain=hardened --libdir=/usr/lib/x86_64-linux-gnu --incdir=/usr/include/x86_64-linux-gnu --arch=amd64 --enable-gpl --disable-stripping --enable-gnutls --enable-ladspa --enable-libaom --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libcodec2 --enable-libdav1d --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libjack --enable-libmp3lame --enable-libmysofa --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librabbitmq --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzimg --enable-libzmq --enable-libzvbi --enable-lv2 --enable-omx --enable-openal --enable-opencl --enable-opengl --enable-sdl2 --enable-pocketsphinx --enable-librsvg --enable-libmfx --enable-libdc1394 --enable-libdrm --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libx264 --enable-shared
+  libavutil      56. 70.100 / 56. 70.100
+  libavcodec     58.134.100 / 58.134.100
+  libavformat    58. 76.100 / 58. 76.100
+  libavdevice    58. 13.100 / 58. 13.100
+  libavfilter     7.110.100 /  7.110.100
+  libswscale      5.  9.100 /  5.  9.100
+  libswresample   3.  9.100 /  3.  9.100
+  libpostproc    55.  9.100 / 55.  9.100
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'resources/codesignal_beyond.mp4':
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: isommp42
+    encoder         : Google
+  Duration: 00:37:29.02, start: 0.000000, bitrate: 207 kb/s
+  Stream #0:0(und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(tv, bt709), 640x360 [SAR 1:1 DAR 16:9], 109 kb/s, 23.98 fps, 23.98 tbr, 24k tbn, 47.95 tbc (default)
+    Metadata:
+      handler_name    : ISO Media file produced by Google Inc.
+      vendor_id       : [0][0][0][0]
+  Stream #0:1(eng): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 95 kb/s (default)
+    Metadata:
+      handler_name    : ISO Media file produced by Google Inc.
+      vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:1 -> #0:0 (aac (native) -> mp3 (libmp3lame))
+Press [q] to stop, [?] for help
+Output #0, mp3, to 'resources/codesignal_beyond_chunk_2.mp3':
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: isommp42
+    TSSE            : Lavf58.76.100
+  Stream #0:0(eng): Audio: mp3, 44100 Hz, stereo, fltp (default)
+    Metadata:
+      handler_name    : ISO Media file produced by Google Inc.
+      vendor_id       : [0][0][0][0]
+      encoder         : Lavc58.134.100 libmp3lame
+size=       0kB time=00:00:00.00 bitrate=N/A speed=   0x    size=     768kB time=00:01:01.20 bitrate= 102.8kbits/s speed= 122x    size=    1792kB time=00:02:02.51 bitrate= 119.8kbits/s speed= 122x    size=    2816kB time=00:03:05.41 bitrate= 124.4kbits/s speed= 124x    size=    3840kB time=00:04:08.45 bitrate= 126.6kbits/s speed= 124x    size=    4864kB time=00:05:11.66 bitrate= 127.8kbits/s speed= 125x    size=    5632kB time=00:06:14.44 bitrate= 123.2kbits/s speed= 125x    size=    6656kB time=00:07:16.79 bitrate= 124.8kbits/s speed= 125x    [libmp3lame @ 0x556df5d7bfc0] Trying to remove 1152 samples, but the queue is empty
+size=    7029kB time=00:07:29.80 bitrate= 128.0kbits/s speed= 125x    
+video:0kB audio:7029kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.004807%
+ffmpeg version 4.4.2-0ubuntu0.22.04.1 Copyright (c) 2000-2021 the FFmpeg developers
+  built with gcc 11 (Ubuntu 11.2.0-19ubuntu1)
+  configuration: --prefix=/usr --extra-version=0ubuntu0.22.04.1 --toolchain=hardened --libdir=/usr/lib/x86_64-linux-gnu --incdir=/usr/include/x86_64-linux-gnu --arch=amd64 --enable-gpl --disable-stripping --enable-gnutls --enable-ladspa --enable-libaom --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libcodec2 --enable-libdav1d --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libjack --enable-libmp3lame --enable-libmysofa --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librabbitmq --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzimg --enable-libzmq --enable-libzvbi --enable-lv2 --enable-omx --enable-openal --enable-opencl --enable-opengl --enable-sdl2 --enable-pocketsphinx --enable-librsvg --enable-libmfx --enable-libdc1394 --enable-libdrm --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libx264 --enable-shared
+  libavutil      56. 70.100 / 56. 70.100
+  libavcodec     58.134.100 / 58.134.100
+  libavformat    58. 76.100 / 58. 76.100
+  libavdevice    58. 13.100 / 58. 13.100
+  libavfilter     7.110.100 /  7.110.100
+  libswscale      5.  9.100 /  5.  9.100
+  libswresample   3.  9.100 /  3.  9.100
+  libpostproc    55.  9.100 / 55.  9.100
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'resources/codesignal_beyond.mp4':
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: isommp42
+    encoder         : Google
+  Duration: 00:37:29.02, start: 0.000000, bitrate: 207 kb/s
+  Stream #0:0(und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(tv, bt709), 640x360 [SAR 1:1 DAR 16:9], 109 kb/s, 23.98 fps, 23.98 tbr, 24k tbn, 47.95 tbc (default)
+    Metadata:
+      handler_name    : ISO Media file produced by Google Inc.
+      vendor_id       : [0][0][0][0]
+  Stream #0:1(eng): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 95 kb/s (default)
+    Metadata:
+      handler_name    : ISO Media file produced by Google Inc.
+      vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:1 -> #0:0 (aac (native) -> mp3 (libmp3lame))
+Press [q] to stop, [?] for help
+Output #0, mp3, to 'resources/codesignal_beyond_chunk_3.mp3':
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: isommp42
+    TSSE            : Lavf58.76.100
+  Stream #0:0(eng): Audio: mp3, 44100 Hz, stereo, fltp (default)
+    Metadata:
+      handler_name    : ISO Media file produced by Google Inc.
+      vendor_id       : [0][0][0][0]
+      encoder         : Lavc58.134.100 libmp3lame
+size=       0kB time=00:00:00.00 bitrate=N/A speed=N/A    size=     768kB time=00:01:02.25 bitrate= 101.1kbits/s speed= 124x    size=    1792kB time=00:02:03.50 bitrate= 118.9kbits/s speed= 123x    size=    2816kB time=00:03:04.19 bitrate= 125.2kbits/s speed= 123x    size=    3584kB time=00:04:03.64 bitrate= 120.5kbits/s speed= 122x    size=    4608kB time=00:05:04.53 bitrate= 124.0kbits/s speed= 122x    size=    5632kB time=00:06:05.32 bitrate= 126.3kbits/s speed= 122x    size=    6656kB time=00:07:06.89 bitrate= 127.7kbits/s speed= 122x    [libmp3lame @ 0x562a4320dfc0] Trying to remove 1152 samples, but the queue is empty
+size=    7029kB time=00:07:29.80 bitrate= 128.0kbits/s speed= 122x    
+video:0kB audio:7029kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.004807%
+ffmpeg version 4.4.2-0ubuntu0.22.04.1 Copyright (c) 2000-2021 the FFmpeg developers
+  built with gcc 11 (Ubuntu 11.2.0-19ubuntu1)
+  configuration: --prefix=/usr --extra-version=0ubuntu0.22.04.1 --toolchain=hardened --libdir=/usr/lib/x86_64-linux-gnu --incdir=/usr/include/x86_64-linux-gnu --arch=amd64 --enable-gpl --disable-stripping --enable-gnutls --enable-ladspa --enable-libaom --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libcodec2 --enable-libdav1d --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libjack --enable-libmp3lame --enable-libmysofa --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librabbitmq --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzimg --enable-libzmq --enable-libzvbi --enable-lv2 --enable-omx --enable-openal --enable-opencl --enable-opengl --enable-sdl2 --enable-pocketsphinx --enable-librsvg --enable-libmfx --enable-libdc1394 --enable-libdrm --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libx264 --enable-shared
+  libavutil      56. 70.100 / 56. 70.100
+  libavcodec     58.134.100 / 58.134.100
+  libavformat    58. 76.100 / 58. 76.100
+  libavdevice    58. 13.100 / 58. 13.100
+  libavfilter     7.110.100 /  7.110.100
+  libswscale      5.  9.100 /  5.  9.100
+  libswresample   3.  9.100 /  3.  9.100
+  libpostproc    55.  9.100 / 55.  9.100
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'resources/codesignal_beyond.mp4':
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: isommp42
+    encoder         : Google
+  Duration: 00:37:29.02, start: 0.000000, bitrate: 207 kb/s
+  Stream #0:0(und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(tv, bt709), 640x360 [SAR 1:1 DAR 16:9], 109 kb/s, 23.98 fps, 23.98 tbr, 24k tbn, 47.95 tbc (default)
+    Metadata:
+      handler_name    : ISO Media file produced by Google Inc.
+      vendor_id       : [0][0][0][0]
+  Stream #0:1(eng): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 95 kb/s (default)
+    Metadata:
+      handler_name    : ISO Media file produced by Google Inc.
+      vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:1 -> #0:0 (aac (native) -> mp3 (libmp3lame))
+Press [q] to stop, [?] for help
+Output #0, mp3, to 'resources/codesignal_beyond_chunk_4.mp3':
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: isommp42
+    TSSE            : Lavf58.76.100
+  Stream #0:0(eng): Audio: mp3, 44100 Hz, stereo, fltp (default)
+    Metadata:
+      handler_name    : ISO Media file produced by Google Inc.
+      vendor_id       : [0][0][0][0]
+      encoder         : Lavc58.134.100 libmp3lame
+size=       0kB time=00:00:00.00 bitrate=N/A speed=N/A    size=     768kB time=00:01:00.63 bitrate= 103.8kbits/s speed= 121x    size=    1792kB time=00:02:02.48 bitrate= 119.8kbits/s speed= 122x    size=    2816kB time=00:03:05.10 bitrate= 124.6kbits/s speed= 123x    size=    3840kB time=00:04:07.38 bitrate= 127.2kbits/s speed= 124x    size=    4608kB time=00:05:08.66 bitrate= 122.3kbits/s speed= 123x    size=    5632kB time=00:06:10.49 bitrate= 124.5kbits/s speed= 123x    size=    6656kB time=00:07:11.57 bitrate= 126.3kbits/s speed= 123x    [libmp3lame @ 0x55fb29e88fc0] Trying to remove 1152 samples, but the queue is empty
+size=    7029kB time=00:07:29.80 bitrate= 128.0kbits/s speed= 123x    
+video:0kB audio:7029kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.004807%
+ffmpeg version 4.4.2-0ubuntu0.22.04.1 Copyright (c) 2000-2021 the FFmpeg developers
+  built with gcc 11 (Ubuntu 11.2.0-19ubuntu1)
+  configuration: --prefix=/usr --extra-version=0ubuntu0.22.04.1 --toolchain=hardened --libdir=/usr/lib/x86_64-linux-gnu --incdir=/usr/include/x86_64-linux-gnu --arch=amd64 --enable-gpl --disable-stripping --enable-gnutls --enable-ladspa --enable-libaom --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libcodec2 --enable-libdav1d --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libjack --enable-libmp3lame --enable-libmysofa --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librabbitmq --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzimg --enable-libzmq --enable-libzvbi --enable-lv2 --enable-omx --enable-openal --enable-opencl --enable-opengl --enable-sdl2 --enable-pocketsphinx --enable-librsvg --enable-libmfx --enable-libdc1394 --enable-libdrm --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libx264 --enable-shared
+  libavutil      56. 70.100 / 56. 70.100
+  libavcodec     58.134.100 / 58.134.100
+  libavformat    58. 76.100 / 58. 76.100
+  libavdevice    58. 13.100 / 58. 13.100
+  libavfilter     7.110.100 /  7.110.100
+  libswscale      5.  9.100 /  5.  9.100
+  libswresample   3.  9.100 /  3.  9.100
+  libpostproc    55.  9.100 / 55.  9.100
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'resources/codesignal_beyond.mp4':
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: isommp42
+    encoder         : Google
+  Duration: 00:37:29.02, start: 0.000000, bitrate: 207 kb/s
+  Stream #0:0(und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(tv, bt709), 640x360 [SAR 1:1 DAR 16:9], 109 kb/s, 23.98 fps, 23.98 tbr, 24k tbn, 47.95 tbc (default)
+    Metadata:
+      handler_name    : ISO Media file produced by Google Inc.
+      vendor_id       : [0][0][0][0]
+  Stream #0:1(eng): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 95 kb/s (default)
+    Metadata:
+      handler_name    : ISO Media file produced by Google Inc.
+      vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:1 -> #0:0 (aac (native) -> mp3 (libmp3lame))
+Press [q] to stop, [?] for help
+Output #0, mp3, to 'resources/codesignal_beyond_chunk_5.mp3':
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: isommp42
+    TSSE            : Lavf58.76.100
+  Stream #0:0(eng): Audio: mp3, 44100 Hz, stereo, fltp (default)
+    Metadata:
+      handler_name    : ISO Media file produced by Google Inc.
+      vendor_id       : [0][0][0][0]
+      encoder         : Lavc58.134.100 libmp3lame
+size=       0kB time=00:00:00.00 bitrate=N/A speed=N/A    size=     768kB time=00:01:00.81 bitrate= 103.5kbits/s speed= 122x    size=    1792kB time=00:02:02.82 bitrate= 119.5kbits/s speed= 123x    size=    2816kB time=00:03:05.10 bitrate= 124.6kbits/s speed= 123x    size=    3840kB time=00:04:07.35 bitrate= 127.2kbits/s speed= 124x    size=    4608kB time=00:05:09.94 bitrate= 121.8kbits/s speed= 124x    size=    5632kB time=00:06:13.65 bitrate= 123.5kbits/s speed= 125x    size=    6656kB time=00:07:17.52 bitrate= 124.6kbits/s speed= 125x    [libmp3lame @ 0x555c8fbecfc0] Trying to remove 1152 samples, but the queue is empty
+size=    7029kB time=00:07:29.80 bitrate= 128.0kbits/s speed= 126x    
+video:0kB audio:7029kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.004807%

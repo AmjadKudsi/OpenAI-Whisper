@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Player & Transcriber</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-6">
+            <h1 class="text-2xl font-bold mb-6 text-center text-gray-800">
+                <i class="fas fa-headphones mr-2"></i>Audio Player & Transcriber
+            </h1>
+            
+            <!-- File Selection -->
+            <div class="mb-6">
+                <label for="audioFile" class="block text-sm font-medium text-gray-700 mb-2">
+                    <i class="fas fa-file-audio mr-2"></i>Select Audio File
+                </label>
+                <select id="audioFile" class="w-full p-2 border rounded-md bg-white shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+                    <option value="">Choose a file...</option>
+                    {% for file_path, info in audio_files.items() %}
+                    <option value="{{ file_path }}">
+                        {{ info.name }} {% if info.duration %}({{ info.duration }}s){% endif %}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <!-- Media Player -->
+            <div class="mb-6">
+                <div id="playerContainer" class="rounded-lg overflow-hidden shadow-sm hidden">
+                    <div class="bg-gray-800 p-4">
+                        <div id="durationInfo" class="text-white text-sm mb-2"></div>
+                        <audio id="audioPlayer" controls class="w-full hidden">
+                            <source src="" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <video id="videoPlayer" controls class="w-full hidden">
+                            <source src="" type="video/mp4">
+                            Your browser does not support the video element.
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transcribe Button -->
+            <div class="mb-6">
+                <button id="transcribeBtn" class="w-full bg-blue-500 text-white py-3 px-4 rounded-md hover:bg-blue-600 transition-colors flex items-center justify-center font-medium">
+                    <i class="fas fa-language mr-2"></i>
+                    <span>Transcribe</span>
+                </button>
+            </div>
+
+            <!-- Transcription Result -->
+            <div id="transcriptionResult" class="hidden">
+                <h2 class="text-lg font-semibold mb-2 text-gray-800">
+                    <i class="fas fa-file-alt mr-2"></i>Transcription
+                </h2>
+                <div id="transcriptionText" class="p-4 bg-gray-50 rounded-md border text-gray-700"></div>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div id="loadingSpinner" class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
+                <div class="bg-white p-4 rounded-lg flex items-center">
+                    <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500 mr-3"></div>
+                    <span class="text-gray-700">Processing...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const audioFile = document.getElementById('audioFile');
+        const audioPlayer = document.getElementById('audioPlayer');
+        const videoPlayer = document.getElementById('videoPlayer');
+        const playerContainer = document.getElementById('playerContainer');
+        const durationInfo = document.getElementById('durationInfo');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const transcribeBtn = document.getElementById('transcribeBtn');
+
+        audioFile.addEventListener('change', function() {
+            const filePath = this.value;
+            
+            // Reset players
+            audioPlayer.pause();
+            videoPlayer.pause();
+            
+            if (!filePath) {
+                playerContainer.classList.add('hidden');
+                return;
+            }
+
+            const isVideo = filePath.toLowerCase().endsWith('.mp4');
+            const selectedOption = this.options[this.selectedIndex];
+            const duration = selectedOption.textContent.match(/\(([\d.]+)s\)/);
+            
+            if (duration) {
+                durationInfo.textContent = `Duration: ${duration[1]} seconds`;
+            }
+            
+            playerContainer.classList.remove('hidden');
+            
+            if (isVideo) {
+                videoPlayer.src = '/' + filePath;
+                videoPlayer.classList.remove('hidden');
+                audioPlayer.classList.add('hidden');
+            } else {
+                audioPlayer.src = '/' + filePath;
+                audioPlayer.classList.remove('hidden');
+                videoPlayer.classList.add('hidden');
+            }
+        });
+
+        transcribeBtn.addEventListener('click', async function() {
+            const filePath = audioFile.value;
+            if (!filePath) {
+                alert('Please select a file first');
+                return;
+            }
+
+            loadingSpinner.classList.remove('hidden');
+            this.disabled = true;
+
+            try {
+                const response = await fetch('/transcribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ file_path: filePath }),
+                });
+
+                const data = await response.json();
+
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+
+                document.getElementById('transcriptionResult').classList.remove('hidden');
+                document.getElementById('transcriptionText').textContent = data.transcription;
+            } catch (error) {
+                alert('Error: ' + error.message);
+            } finally {
+                loadingSpinner.classList.add('hidden');
+                this.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

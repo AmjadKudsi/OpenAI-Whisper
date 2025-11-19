@@ -1,0 +1,101 @@
+Starting application...
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3000
+ * Running on http://10.6.158.127:3000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 703-815-874
+10.6.132.171 - - [17/Nov/2025 23:21:07] "GET / HTTP/1.1" 200 -
+ * Detected change in '/usercode/FILESYSTEM/transcriber.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 703-815-874
+10.6.132.171 - - [17/Nov/2025 23:21:12] "GET /?tmp=siCuoJ7zFExtK4G2u HTTP/1.1" 200 -
+10.6.132.60 - - [17/Nov/2025 23:21:16] "GET /resources/codesignal_cosmo_feedback.mp4 HTTP/1.1" 206 -
+
+# 32.62 seconds
+
+10.6.187.122 - - [17/Nov/2025 23:27:18] "GET /resources/sample_audio.mp3 HTTP/1.1" 206 -
+Split media into 0 chunk(s): []
+File small enough, transcribing without splitting...
+10.6.176.0 - - [17/Nov/2025 23:27:23] "POST /transcribe HTTP/1.1" 200 -
+
+# 77.21 seconds:
+
+10.6.213.10 - - [17/Nov/2025 23:28:03] "GET /resources/codesignal_cosmo_feedback.mp4 HTTP/1.1" 206 -
+Split media into 0 chunk(s): []
+File small enough, transcribing without splitting...
+10.6.219.197 - - [17/Nov/2025 23:28:12] "POST /transcribe HTTP/1.1" 200 -
+
+# 201.59 seconds:
+
+10.6.187.122 - - [17/Nov/2025 23:29:09] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.164.183 - - [17/Nov/2025 23:29:09] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.222.199 - - [17/Nov/2025 23:29:10] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.184.211 - - [17/Nov/2025 23:29:10] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.222.199 - - [17/Nov/2025 23:29:10] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.164.183 - - [17/Nov/2025 23:29:10] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.151.161 - - [17/Nov/2025 23:29:10] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.192.180 - - [17/Nov/2025 23:29:10] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.184.155 - - [17/Nov/2025 23:29:10] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.176.0 - - [17/Nov/2025 23:29:10] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.192.180 - - [17/Nov/2025 23:29:10] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.222.199 - - [17/Nov/2025 23:29:10] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.164.183 - - [17/Nov/2025 23:29:10] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.219.197 - - [17/Nov/2025 23:29:10] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.148.109 - - [17/Nov/2025 23:29:10] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.164.183 - - [17/Nov/2025 23:29:11] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.184.211 - - [17/Nov/2025 23:29:11] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.157.80 - - [17/Nov/2025 23:29:11] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.163.111 - - [17/Nov/2025 23:29:11] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.147.77 - - [17/Nov/2025 23:29:11] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.184.155 - - [17/Nov/2025 23:29:11] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.157.80 - - [17/Nov/2025 23:29:11] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.218.182 - - [17/Nov/2025 23:29:11] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.157.230 - - [17/Nov/2025 23:29:11] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.203.87 - - [17/Nov/2025 23:29:11] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.164.183 - - [17/Nov/2025 23:29:11] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.192.180 - - [17/Nov/2025 23:29:12] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.187.122 - - [17/Nov/2025 23:29:12] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.147.77 - - [17/Nov/2025 23:29:12] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.157.80 - - [17/Nov/2025 23:29:12] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.164.183 - - [17/Nov/2025 23:29:12] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.222.199 - - [17/Nov/2025 23:29:12] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.184.155 - - [17/Nov/2025 23:29:12] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.132.171 - - [17/Nov/2025 23:29:12] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.154.167 - - [17/Nov/2025 23:29:12] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.132.60 - - [17/Nov/2025 23:29:12] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.132.60 - - [17/Nov/2025 23:29:12] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.213.10 - - [17/Nov/2025 23:29:12] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+10.6.132.60 - - [17/Nov/2025 23:29:13] "GET /resources/codesignal_conversation_practice.mp4 HTTP/1.1" 206 -
+Split media into 0 chunk(s): []
+File small enough, transcribing without splitting...
+10.6.132.60 - - [17/Nov/2025 23:29:24] "POST /transcribe HTTP/1.1" 200 -
+
+
+# 654.62 seconds:
+
+10.6.132.60 - - [17/Nov/2025 23:32:03] "GET /resources/codesignal_ai_interviewer_sales.mp4 HTTP/1.1" 206 -
+Split media into 0 chunk(s): []
+File small enough, transcribing without splitting...
+Error processing file: Transcription failed: Request timed out.
+10.6.219.197 - - [17/Nov/2025 23:35:11] "POST /transcribe HTTP/1.1" 200 -
+
+
+
+
+#explanation:
+
+The popup with Unexpected token '<' is your frontend trying to parse an HTML 504 error page as JSON.
+
+The root issue is that the 654 second file causes the transcription call to take too long:
+
+Your Python client times out at 60 seconds.
+
+The Codesignal proxy eventually returns a 504 gateway timeout.
+
+It happens because that file is treated as a single chunk and sent as one huge transcription request. It is long in time even if small in megabytes.

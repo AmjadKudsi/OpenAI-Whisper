@@ -1,0 +1,40 @@
+/usercode/FILESYSTEM$ bash /usercode/FILESYSTEM/.codesignal/setup.sh -a
+Setting up environment...
+Starting application...
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3000
+ * Running on http://10.6.152.254:3000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 141-164-825
+10.6.131.219 - - [18/Nov/2025 23:33:09] "GET / HTTP/1.1" 200 -
+10.6.213.153 - - [18/Nov/2025 23:33:37] "GET /?tmp=XECdfTGTAFmgobvY2 HTTP/1.1" 200 -
+Downloading LinkedIn video... 'cookies.txt' existence: False
+[download]   0.0% of    6.69MiB at  421.24KiB/s E
+[download]   0.0% of    6.69MiB at    1.01MiB/s E
+[download]   0.1% of    6.69MiB at    2.07MiB/s E
+[download]   0.2% of    6.69MiB at    3.94MiB/s E
+[download]   0.5% of    6.69MiB at    7.29MiB/s E
+[download]   0.9% of    6.69MiB at   13.15MiB/s E
+[download]   1.9% of    6.69MiB at   15.96MiB/s E
+[download]   3.7% of    6.69MiB at   26.00MiB/s E
+[download]   7.5% of    6.69MiB at   41.41MiB/s E
+[download]  14.9% of    6.69MiB at   65.16MiB/s E
+[download]  29.9% of    6.69MiB at   61.63MiB/s E
+[download]  59.8% of    6.69MiB at   32.86MiB/s E
+[download] 100.0% of    6.69MiB at   22.59MiB/s E
+[download] 100% of    6.69MiB in 00:00:00 at 15.3
+10.6.213.153 - - [18/Nov/2025 23:33:54] "POST /process-url HTTP/1.1" 200 -
+Serving file: tmpbcxyaz53/IntroducingAIInterviewerforProductManagementTigranSloyanpostedonthetopicLinkedIn.mp4
+Full directory: temp_resources/tmpbcxyaz53
+Basename: IntroducingAIInterviewerforProductManagementTigranSloyanpostedonthetopicLinkedIn.mp4
+10.6.213.153 - - [18/Nov/2025 23:33:54] "GET /temp_resources/tmpbcxyaz53/IntroducingAIInterviewerforProductManagementTigranSloyanpostedonthetopicLinkedIn.mp4 HTTP/1.1" 206 -
+Transcribing file: temp_resources/tmpbcxyaz53/IntroducingAIInterviewerforProductManagementTigranSloyanpostedonthetopicLinkedIn.mp4
+File exists: True
+
+Transcribing audio...
+10.6.131.219 - - [18/Nov/2025 23:34:10] "POST /transcribe HTTP/1.1" 200 -

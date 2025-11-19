@@ -1,0 +1,94 @@
+Terminal Output:
+
+10.6.144.161 - - [19/Nov/2025 18:26:36] "GET / HTTP/1.1" 200 -
+Downloading from Google Drive...
+Downloading file to: /tmp/tmpm2_wp10k.mp4
+Downloading...
+From: https://drive.google.com/uc?id=1UB-sWNzDOC-xjLL9xZkTr11e7KXtOg5y
+To: /tmp/tmpm2_wp10k.mp4
+100%|███████████████████████████████████████████████████████████████| 16.1M/16.1M [00:00<00:00, 81.2MB/s]
+10.6.194.127 - - [19/Nov/2025 18:26:44] "POST /process-url HTTP/1.1" 200 -
+Serving file: tmpzj4v_xqy/tmpm2_wp10k.mp4
+Full directory: temp_resources/tmpzj4v_xqy
+Basename: tmpm2_wp10k.mp4
+10.6.144.161 - - [19/Nov/2025 18:26:44] "GET /temp_resources/tmpzj4v_xqy/tmpm2_wp10k.mp4 HTTP/1.1" 206 -
+Transcribing file: temp_resources/tmpzj4v_xqy/tmpm2_wp10k.mp4
+File exists: True
+
+File size (15.35MB) exceeds API limit. Splitting into chunks...
+
+Splitting audio into chunks...
+
+Extracting chunk 1/1:
+ffmpeg version 4.4.2-0ubuntu0.22.04.1 Copyright (c) 2000-2021 the FFmpeg developers
+  built with gcc 11 (Ubuntu 11.2.0-19ubuntu1)
+  configuration: --prefix=/usr --extra-version=0ubuntu0.22.04.1 --toolchain=hardened --libdir=/usr/lib/x86_64-linux-gnu --incdir=/usr/include/x86_64-linux-gnu --arch=amd64 --enable-gpl --disable-stripping --enable-gnutls --enable-ladspa --enable-libaom --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libcodec2 --enable-libdav1d --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libjack --enable-libmp3lame --enable-libmysofa --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librabbitmq --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzimg --enable-libzmq --enable-libzvbi --enable-lv2 --enable-omx --enable-openal --enable-opencl --enable-opengl --enable-sdl2 --enable-pocketsphinx --enable-librsvg --enable-libmfx --enable-libdc1394 --enable-libdrm --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libx264 --enable-shared
+  libavutil      56. 70.100 / 56. 70.100
+  libavcodec     58.134.100 / 58.134.100
+  libavformat    58. 76.100 / 58. 76.100
+  libavdevice    58. 13.100 / 58. 13.100
+  libavfilter     7.110.100 /  7.110.100
+  libswscale      5.  9.100 /  5.  9.100
+  libswresample   3.  9.100 /  3.  9.100
+  libpostproc    55.  9.100 / 55.  9.100
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'temp_resources/tmpzj4v_xqy/tmpm2_wp10k.mp4':
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: isommp42
+    encoder         : Google
+  Duration: 00:10:54.62, start: 0.000000, bitrate: 196 kb/s
+  Stream #0:0(und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(tv, bt709), 640x360 [SAR 1:1 DAR 16:9], 97 kb/s, 23.98 fps, 23.98 tbr, 24k tbn, 47.95 tbc (default)
+    Metadata:
+      handler_name    : ISO Media file produced by Google Inc.
+      vendor_id       : [0][0][0][0]
+  Stream #0:1(eng): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 95 kb/s (default)
+    Metadata:
+      handler_name    : ISO Media file produced by Google Inc.
+      vendor_id       : [0][0][0][0]
+Output #0, mp4, to '/tmp/tmp9zvvle80.mp4':
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: isommp42
+    encoder         : Lavf58.76.100
+  Stream #0:0(und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(tv, bt709), 640x360 [SAR 1:1 DAR 16:9], q=2-31, 97 kb/s, 23.98 fps, 23.98 tbr, 24k tbn, 24k tbc (default)
+    Metadata:
+      handler_name    : ISO Media file produced by Google Inc.
+      vendor_id       : [0][0][0][0]
+  Stream #0:1(eng): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 95 kb/s (default)
+    Metadata:
+      handler_name    : ISO Media file produced by Google Inc.
+      vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (copy)
+  Stream #0:1 -> #0:1 (copy)
+Press [q] to stop, [?] for help
+frame=    0 fps=0.0 q=-1.0 size=       0kB time=00:00:00.00 bitrate=N/A speed=N/A    
+frame=15566 fps=0.0 q=-1.0 Lsize=   15812kB time=00:10:54.59 bitrate= 197.9kbits/s speed=5.19e+03x    
+video:7719kB audio:7671kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 2.740572%
+
+Transcribing chunk 1 of 1...
+10.6.187.122 - - [19/Nov/2025 18:27:18] "POST /transcribe HTTP/1.1" 200 -
+
+
+Output: Summary:
+
+**Overview:**
+The transcription discusses the integration of AI-driven tools for skills-based hiring in sales roles, highlighting its use in AI interviews with role-play scenarios to assess candidates' abilities across various sales processes.
+
+**Key Takeaways:**
+1. **AI in Sales Hiring:** The organization has transitioned skills-based hiring methods from technical to sales roles, utilizing AI interviews to evaluate candidates effectively.
+2. **Role-Playing Scenarios:** The interview process includes role-play scenarios addressing various aspects of sales, such as initial prospecting, navigating organizational structures, and negotiating deals.
+3. **Evaluation System:** Candidates are assessed based on performance in these scenarios, with results scored and organized into key dimensions for easy review through a dashboard.
+
+**Important Details:**
+- The AI tool provides realistic role-plays that simulate interactions with potential clients, allowing candidates to demonstrate skills like relationship building and negotiation.
+- Interview panels consist of different role-play scenarios, such as dealing with challenging procurement discussions or navigating complex organizational interactions.
+- The system automatically scores candidates, offering customizable labels and detailed feedback on their performance in specific skill areas.
+
+
+Output: Full Transcription:
+
+In the past six years, we've made skills-based hiring the norm for technical roles. Today, I'm excited to show you all how we've leveraged the power of AI to bring skills-based hiring to sales roles. And naturally, we use AI interviews for our own sales hiring. So let's take a look at an example AI interview where I don't have just one interviewer, but I have an entire panel. Hey, how are you? Hey Chris, doing great. How are you doing? I'm doing well, thanks for asking. So I appreciate you taking the time today. For this session, I was hoping you could pick a deal that you've won in the past 12 months and walk me through your sales process. Sure, I got you. How about a deal where I've helped one of our existing customers who's been using our technical assessments get deeper into sales hiring and AI interviews and bring that same structure and consistency to the sales hiring process? That sounds interesting. So how did the initial contact with the client happen? Was it something you initiated or did they come to you? So the initial contact was with the head of talent acquisition who's been working with us on the technical hiring front for many years. And I've reached out to offer piloting an AI interviewing product that will apply to their sales hiring process. Got it. When you first reached out, what were your impressions of their needs at that time? Did you have any specific goals for that initial conversation? Well, let's pause that one here. Now I can play back what I've recorded so that I can be happy with my overall response. I can try and record that again. But more importantly, we can see that Chris is a very mature and well-versed interviewer because he doesn't just ask one question after another. He actually digs into the details to make sure that A, whatever I'm saying is actually believable and that he can understand the details of how involved I was in the deal, what exactly was my part. And if I went on, he would get as far as trying to really dig into my hiring process, my overall sales process and how I take a deal from an initial prospect to a full-on conclusion. Let's take a look at the next panel interviewer. In this case, we go from deal review to actual role plays. And in the role play scenarios, we have several interviewers that are running a consistent scenario. So to start out with, this is an interview that's focused on a role play of an initial outreach and pipeline building where it says I've reached out to Natalie, who's a VP of talent acquisition at a fast-growing company. And I'm introducing to Natalie CodeSignal's AI-driven hiring solution. Let's have a look. Hey, how are you? Hey, Natalie, I'm good. How are you? I'm doing well, thanks. So I saw your email and wanted to hear more. How exactly does this AI interviewer help with sales hiring and what makes it different? Absolutely. Thank you, first of all, for responding to my email. You know, when I get started talking about our AI interviewer, we might be here for the next 10, 15 minutes. So before I dive in, I'm curious what piqued your interest when you first saw my email. Well, to be honest, I'm really looking for ways to streamline our sales hiring process. My team spends a lot of time screening candidates and I'm just curious if your tool can help with that, especially in identifying key skills like persuasion and coachability. Awesome. Let's pause this one here. Again, we can see that it's a perfectly balanced role play in which Natalie assumes the role that she was given. And while role plays are fairly common in sales hiring, they're often somewhat awkward, somewhat inconsistent and very time consuming. And in this case, I will role play with Natalie and showcase my ability to not only understand the core pain points, uncover pain points in a discovery call, but also pitch the core product. Okay, now let's take a look at the next interviewer in the panel. And this time the scenario actually continues. I'm still talking to Natalie, but this time we have a next call, which is aimed to assess my ability to navigate the organization. So understand key players in the organization as well as help Natalie build her into a champion. So in this case, it sounds like I've already had that initial conversation and I'm talking to Natalie about how we can best navigate this and bring the solution into our organization. All right, let's try. Hey, how are you? Hey Natalie, good to connect again. Thanks for hopping on this call again. I'm interested in CodeSignal, but I need your help figuring out how to get the rest of the team on board. It's just so complicated. I can only imagine. Let's figure this out together. Can you tell me who else we gotta get on board to get the deal done? I think maybe I need to involve like the sales team lead and maybe the finance person. I don't know. And definitely someone from IT to make sure it integrates. This is too much work. I am sorry. No worries. I understand this can be a lot on top of everything else you have to figure out, but I'm here to help. We can manage it together. So you said we gotta get head of IT, finance, head of sales. Anybody I've missed? Maybe also the SEO. They can be pretty skeptical about new tools. So, I don't think I can deal with this right now. It's all just overwhelming. I totally get it. How about I send you an email quickly summarizing the people we've got to get on board. And then you can introduce me to them one-on-one and I can have the conversation to help them get excited about the project and help you build the case. That sounds okay. But I just worry about how to get them all together. Maybe if you could like help me frame the email too. It's just a lot to juggle. For sure. Let's pause this one here. So this is super cool because you can see that Natalie now has a different set of emotions. You can tell that she's frustrated. It feels very real and it feels like she's trying to get out of her comfort zone. You can tell that she's frustrated. It feels very real and it feels very raw, which is an incredible piece of AI technology allowing us to really assess someone's ability to build a relationship, navigate a tough conversation, and display one of the core skill sets of software sales, which is building a champion and navigating a complex organizational structure. Now, last but not least, we've got the last interviewer, which is also role-play style. And in this role-play style, we've got Dan, who is a procurement person. Obviously, it assumes that we've gone through all the hopes and we're close to getting the deal done. But then navigating procurement, defending the value of the offering, as well as masterfully navigating the negotiation is a tough skill and an important one to display during the interview process. So I'm going to go into the conversation with Dan. Dan is very tough. I've talked to Dan before. I'm not going to spend too much time doing it, but just to show you how the conversation flows. Let's talk to Dan. Hey, how are you? I've reviewed the proposal, but $15 per assessment seems high for us. What can you do to bring that down? I'm thinking something closer to $7 per assessment would make more sense for us, especially at the volume we're committing to. Hey, Dan. I appreciate the sentiment, absolutely. And it's a pleasure to meet you. But first of all, the price has already been discounted once. And second of all, I've gone through a very thorough value process and an ROI process with your team showing that we are going to see 5 to 10x ROI from this investment. And there is already budget approved. So I believe that we should be all set to go. I get that. And I appreciate the work that's gone into it. But honestly, even with a discounted price, $15 still feels steep for us. Given the scale of our commitment, 30,000 assessments, I really think there should be more flexibility. Can you tell me what else can be done here to make this more viable for us? Like I said, Dan is a very tough procurement guy. So I'll pause it there. And next up, we can go ahead and look at what this entire evaluation looks like once it's delivered to the hiring team. After the interview is over, everything is automatically scored, broken down by dimensions that you care about the most and delivered to you in the CodeSignal dashboard. Let's take a look. I've got the overall score. I can put customizable labels to help me better understand and organize the results, general details, and then breakdown of the dimensions that I care about the most, rated based on the performance on AI interviews, broken down into key areas. And then if I want to get even more details, I can go down one level and see the actual question asked. Asked skill areas covered the performance of the candidate. And I can dig in even further and see qualitative feedback provided by AI on the performance based on the transcript of the conversation. So in here, I can see what the question was and what the score insights are, as well as a rating from very unsatisfactory to very satisfactory on the dimensions that were defined ahead of time. I can also listen to the recording or read the transcript of the conversation to better understand whether I agree with the result or if I have any notes or edits.
+

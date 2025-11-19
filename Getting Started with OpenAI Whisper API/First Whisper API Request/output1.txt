@@ -1,0 +1,40 @@
+/usercode/FILESYSTEM$ bash /usercode/FILESYSTEM/.codesignal/setup.sh -a
+Setting up environment…
+--2025-11-15 05:36:31--  https://codesignal-assets.s3.amazonaws.com/uploads/1736399347134/sample_video.mp3
+Resolving codesignal-assets.s3.amazonaws.com (codesignal-assets.s3.amazonaws.com)... 54.231.136.121, 3.5.28.155, 52.217.81.60, ...
+Connecting to codesignal-assets.s3.amazonaws.com (codesignal-assets.s3.amazonaws.com)|54.231.136.121|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 617489 (603K) [audio/mpeg]
+Saving to: ‘resources/sample_audio.mp3’
+
+resources/sample_audio.mp3                          0%[                                                                               resources/sample_audio.mp3                        100%[=============================================================================================================>] 603.02K  --.-KB/s    in 0.004s  
+
+2025-11-15 05:36:31 (159 MB/s) - ‘resources/sample_audio.mp3’ saved [617489/617489]
+
+--2025-11-15 05:36:31--  https://codesignal-assets.s3.amazonaws.com/uploads/1736399347656/sample_video.mp4
+Resolving codesignal-assets.s3.amazonaws.com (codesignal-assets.s3.amazonaws.com)... 52.217.93.60, 52.217.163.217, 52.216.216.249, ...
+Connecting to codesignal-assets.s3.amazonaws.com (codesignal-assets.s3.amazonaws.com)|52.217.93.60|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2013129 (1.9M) [video/mp4]
+Saving to: ‘resources/sample_video.mp4’
+
+resources/sample_video.mp4                          0%[                                                                               resources/sample_video.mp4                        100%[=============================================================================================================>]   1.92M  --.-KB/s    in 0.02s   
+
+2025-11-15 05:36:32 (107 MB/s) - ‘resources/sample_video.mp4’ saved [2013129/2013129]
+
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3000
+ * Running on http://10.6.218.141:3000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 101-498-836
+10.6.153.143 - - [15/Nov/2025 05:36:34] "GET / HTTP/1.1" 200 -
+10.6.216.22 - - [15/Nov/2025 05:40:59] "GET /?tmp=MAzwFQ4tPYNJcFikE HTTP/1.1" 200 -
+10.6.211.140 - - [15/Nov/2025 05:41:20] "GET /resources/sample_audio.mp3 HTTP/1.1" 206 -
+10.6.179.80 - - [15/Nov/2025 05:41:25] "POST /transcribe HTTP/1.1" 200 -
+10.6.173.123 - - [15/Nov/2025 05:41:26] "GET /resources/sample_audio.mp3 HTTP/1.1" 206 -
+10.6.179.80 - - [15/Nov/2025 05:41:26] "GET /resources/sample_audio.mp3 HTTP/1.1" 206 -

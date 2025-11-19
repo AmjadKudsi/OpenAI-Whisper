@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Player & Transcriber</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .loading-spinner {
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        textarea::placeholder {
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+            line-height: 1.5;
+        }
+        textarea {
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+        #previewFrame {
+            aspect-ratio: 16/9;
+            width: 100%;
+        }
+        #previewFrame iframe {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-6">
+            <h1 class="text-2xl font-bold mb-6 text-center text-gray-800">
+                <i class="fas fa-video mr-2"></i>Video Player & Transcriber
+            </h1>
+            
+            <!-- URL Input -->
+            <div class="mb-6">
+                <label for="videoUrl" class="block text-sm font-medium text-gray-700 mb-2">
+                    <i class="fas fa-link mr-2"></i>Enter Video URL (LinkedIn or Google Drive)
+                </label>
+                <div class="flex gap-2">
+                    <div class="flex-1 relative">
+                        <textarea id="videoUrl" 
+                            rows="1"
+                            class="w-full p-2 border rounded-md bg-white shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 overflow-hidden resize-none transition-all duration-200"
+                            placeholder="https://www.linkedin.com/feed/update/... or https://drive.google.com/file/d/..."
+                            style="min-height: 40px;"
+                        ></textarea>
+                    </div>
+                    <button id="previewBtn" class="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600 transition-colors flex items-center">
+                        <i class="fas fa-eye mr-2"></i>Preview
+                    </button>
+                    <button id="loadBtn" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition-colors flex items-center">
+                        <i class="fas fa-download mr-2"></i>Load
+                    </button>
+                </div>
+                <p class="mt-1 text-sm text-gray-500">Supported formats: LinkedIn videos/posts and Google Drive video files</p>
+            </div>
+
+            <!-- Preview Player -->
+            <div class="mb-6">
+                <div id="previewContainer" class="rounded-lg overflow-hidden shadow-sm hidden">
+                    <div class="bg-gray-800 p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <div id="previewInfo" class="text-white text-sm"></div>
+                            <div class="text-white text-sm">Preview Mode</div>
+                        </div>
+                        <div id="previewFrame" class="w-full aspect-video bg-black"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Media Player (for downloaded content) -->
+            <div class="mb-6">
+                <div id="playerContainer" class="rounded-lg overflow-hidden shadow-sm hidden">
+                    <div class="bg-gray-800 p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <div id="durationInfo" class="text-white text-sm"></div>
+                            <div class="text-white text-sm">Downloaded Video</div>
+                        </div>
+                        <video id="videoPlayer" controls class="w-full" controlsList="nodownload">
+                            <source src="" type="video/mp4">
+                            Your browser does not support the video element.
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transcribe Button -->
+            <div class="mb-6">
+                <button id="transcribeBtn" class="w-full bg-blue-500 text-white py-3 px-4 rounded-md hover:bg-blue-600 transition-colors flex items-center justify-center font-medium disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                    <i class="fas fa-language mr-2"></i>
+                    <span>Transcribe</span>
+                </button>
+            </div>
+
+            <!-- Transcription Result -->
+            <div id="transcriptionResult" class="hidden">
+                <div class="flex justify-between items-center mb-2">
+                    <h2 class="text-lg font-semibold text-gray-800">
+                        <i class="fas fa-file-alt mr-2"></i>Transcription
+                    </h2>
+                    <button id="copyTranscription" class="text-blue-500 hover:text-blue-600 transition-colors">
+                        <i class="fas fa-copy mr-1"></i>Copy
+                    </button>
+                </div>
+                <div id="transcriptionText" class="p-4 bg-gray-50 rounded-md border text-gray-700 whitespace-pre-wrap"></div>
+            </div>
+
+            <!-- Error Alert -->
+            <div id="errorAlert" class="hidden fixed top-4 right-4 max-w-sm bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                <strong class="font-bold">Error!</strong>
+                <span id="errorMessage" class="block sm:inline"></span>
+                <button class="absolute top-0 right-0 px-4 py-3" onclick="this.parentElement.classList.add('hidden')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div id="loadingSpinner" class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50">
+                <div class="bg-white p-6 rounded-lg flex items-center shadow-xl">
+                    <div class="loading-spinner rounded-full h-8 w-8 border-4 border-blue-500 border-t-transparent mr-3"></div>
+                    <div>
+                        <div id="loadingText" class="text-gray-700 font-medium">Processing...</div>
+                        <div id="loadingSubtext" class="text-gray-500 text-sm mt-1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const videoUrl = document.getElementById('videoUrl');
+        const previewBtn = document.getElementById('previewBtn');
+        const loadBtn = document.getElementById('loadBtn');
+        const videoPlayer = document.getElementById('videoPlayer');
+        const playerContainer = document.getElementById('playerContainer');
+        const previewContainer = document.getElementById('previewContainer');
+        const previewFrame = document.getElementById('previewFrame');
+        const durationInfo = document.getElementById('durationInfo');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const loadingText = document.getElementById('loadingText');
+        const loadingSubtext = document.getElementById('loadingSubtext');
+        const transcribeBtn = document.getElementById('transcribeBtn');
+        const errorAlert = document.getElementById('errorAlert');
+        const errorMessage = document.getElementById('errorMessage');
+        const copyTranscription = document.getElementById('copyTranscription');
+
+        let currentVideoPath = null;
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorAlert.classList.remove('hidden');
+            setTimeout(() => {
+                errorAlert.classList.add('hidden');
+            }, 5000);
+        }
+
+        function updateLoadingState(isLoading, text, subtext = '') {
+            if (isLoading) {
+                loadingText.textContent = text;
+                loadingSubtext.textContent = subtext;
+                loadingSpinner.classList.remove('hidden');
+            } else {
+                loadingSpinner.classList.add('hidden');
+            }
+        }
+
+        function getLinkedInPostId(url) {
+            console.log('Processing URL:', url);
+            
+            // Extract activity ID from various LinkedIn URL formats
+            const patterns = [
+                // Standard activity pattern
+                /activity-(\d+)/,
+                // Feed update pattern
+                /urn:li:activity:(\d+)/,
+                // UGC post pattern
+                /urn:li:ugcPost:(\d+)/
+            ];
+
+            for (const pattern of patterns) {
+                const match = url.match(pattern);
+                if (match) {
+                    const id = match[1];
+                    console.log('Found LinkedIn post ID:', id);
+                    return id;
+                }
+            }
+            
+            console.log('No matching pattern found for URL');
+            return null;
+        }
+
+        function getDriveFileId(url) {
+            const regExp = /\/file\/d\/([^/]+)/;
+            const match = url.match(regExp);
+            return match ? match[1] : null;
+        }
+        
+        let previewIframe = null;
+
+        function embedLinkedInPost(postId) {
+            console.log('Embedding post with ID:', postId);
+            // Create an iframe for LinkedIn embed
+            previewFrame.innerHTML = `
+                <iframe 
+                    src="https://www.linkedin.com/embed/feed/update/urn:li:activity:${postId}"
+                    width="100%" 
+                    height="100%" 
+                    frameborder="0" 
+                    allowfullscreen
+                    allow="autoplay; encrypted-media"
+                    title="LinkedIn post">
+                </iframe>
+            `;
+            console.log('Embed iframe created');
+            previewIframe = previewFrame.querySelector('iframe');
+        }
+
+        function embedDriveVideo(fileId) {
+            previewFrame.innerHTML = `
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    src="https://drive.google.com/file/d/${fileId}/preview"
+                    frameborder="0" 
+                    allow="autoplay">
+                </iframe>
+            `;
+        }
+        
+        function stopPreviewVideo() {
+            const previewIframe = previewFrame.querySelector('iframe');
+            if (previewIframe) {
+                // Replace the iframe with itself to stop the video
+                previewIframe.src = previewIframe.src;
+            }
+        }
+
+        previewBtn.addEventListener('click', function() {
+            const url = videoUrl.value.trim();
+            if (!url) {
+                showError('Please enter a valid URL');
+                return;
+            }
+            
+            // Pause the loaded video if it's playing
+            videoPlayer.pause();
+
+            let videoId;
+            if (url.includes('linkedin.com')) {
+                videoId = getLinkedInPostId(url);
+                if (videoId) {
+                    embedLinkedInPost(videoId);
+                    previewContainer.classList.remove('hidden');
+                    playerContainer.classList.add('hidden');
+                    return;
+                }
+            } else if (url.includes('drive.google.com')) {
+                videoId = getDriveFileId(url);
+                if (videoId) {
+                    embedDriveVideo(videoId);
+                    previewContainer.classList.remove('hidden');
+                    playerContainer.classList.add('hidden');
+                    return;
+                }
+            }
+            
+            showError('Invalid video URL');
+        });
+
+        loadBtn.addEventListener('click', async function() {
+            const url = videoUrl.value.trim();
+            if (!url) {
+                showError('Please enter a valid URL');
+                return;
+            }
+            
+            // Stop the preview video
+            stopPreviewVideo();
+
+            updateLoadingState(true, 'Downloading video...', 'This may take a few moments');
+            loadBtn.disabled = true;
+            transcribeBtn.disabled = true;
+
+            try {
+                const response = await fetch('/process-url', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ url: url }),
+                });
+
+                const data = await response.json();
+
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+
+                // Store the filename for later use
+                currentVideoPath = data.filename;
+                
+                // Construct the video source URL - encode the path components but not the slashes
+                const encodedPath = data.filename.split('/').map(component => 
+                    encodeURIComponent(component)
+                ).join('/');
+                
+                // Set the video source
+                videoPlayer.src = `/temp_resources/${encodedPath}`;
+                videoPlayer.load();
+                previewContainer.classList.add('hidden');
+                playerContainer.classList.remove('hidden');
+                
+                if (data.duration) {
+                    durationInfo.textContent = `Duration: ${Math.round(data.duration)} seconds`;
+                }
+
+                document.getElementById('transcriptionResult').classList.add('hidden');
+                document.getElementById('transcriptionText').textContent = '';
+                
+                transcribeBtn.disabled = false;
+            } catch (error) {
+                showError(error.message);
+            } finally {
+                updateLoadingState(false);
+                loadBtn.disabled = false;
+            }
+        });
+
+        transcribeBtn.addEventListener('click', async function() {
+            if (!currentVideoPath) {
+                showError('Please load a video first');
+                return;
+            }
+
+            updateLoadingState(true, 'Transcribing...', 'This may take several minutes');
+            this.disabled = true;
+
+            try {
+                const response = await fetch('/transcribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ file_path: currentVideoPath }),
+                });
+
+                const data = await response.json();
+
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+
+                document.getElementById('transcriptionResult').classList.remove('hidden');
+                document.getElementById('transcriptionText').textContent = data.transcription;
+            } catch (error) {
+                showError(error.message);
+            } finally {
+                updateLoadingState(false);
+                this.disabled = false;
+            }
+        });
+
+        copyTranscription.addEventListener('click', async function() {
+            const transcriptionText = document.getElementById('transcriptionText').textContent;
+            try {
+                await navigator.clipboard.writeText(transcriptionText);
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-check mr-1"></i>Copied!';
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                }, 2000);
+            } catch (err) {
+                showError('Failed to copy to clipboard');
+            }
+        });
+
+        // Auto-resize textarea
+        function autoResizeTextarea() {
+            videoUrl.style.height = 'auto';
+            videoUrl.style.height = (videoUrl.scrollHeight) + 'px';
+        }
+
+        // Initial resize
+        autoResizeTextarea();
+
+        // Add event listeners for auto-resize
+        videoUrl.addEventListener('input', autoResizeTextarea);
+        videoUrl.addEventListener('change', autoResizeTextarea);
+
+        // Clear and resize video URL on focus
+        videoUrl.addEventListener('focus', function() {
+            if (this.value) {
+                this.select();
+            }
+            autoResizeTextarea();
+        });
+
+        // Resize on window resize
+        window.addEventListener('resize', autoResizeTextarea);
+    </script>
+</body>
+</html>
